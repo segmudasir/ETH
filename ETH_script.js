@@ -8,6 +8,8 @@ let entryLineData = [];
 let stopCrossed = false;
 let direction = null;
 let firstvaluecount = null;
+let leverage = 5; // Default leverage
+
 const ctx = document.getElementById('ethChart').getContext('2d');
 const ethChart = new Chart(ctx, {
   type: 'line',
@@ -108,6 +110,31 @@ const ethChart = new Chart(ctx, {
   }
 });
 
+window.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('https://staff-api-plz8.onrender.com/data');
+    const data = await response.json();
+
+    if (data.EntryPrice !== undefined) {
+      document.getElementById('entryPrice').value = data.EntryPrice;
+      entryValue = data.EntryPrice;  // update global variable
+    }
+    if (data.Size !== undefined) {
+      document.getElementById('size').value = data.Size;
+      size = data.Size;  // update global variable
+    }
+    if (data.StopPrice !== undefined) {
+      document.getElementById('stopPrice').value = data.StopPrice;
+      // If you use a global variable for stopPrice, update it here too
+    }
+    if (data.Leverage !== undefined) {
+      document.querySelector('.value[data-type="leverage"]').textContent = `x${data.Leverage}`;
+      leverage = parseFloat(data.Leverage); // ✅ Store in global variable
+    }
+  } catch (error) {
+    console.error('Failed to fetch initial data:', error);
+  }
+});
 
 function startTracking() {
   const inputValue = parseFloat(document.getElementById('entryPrice').value);
@@ -239,19 +266,15 @@ async function getETHPrice() {
     const closeToMin = 100 - closeToMax;
      // ✅ Liquidation calculation
     const inputValue = parseFloat(document.getElementById('entryPrice').value);
-    const factor = inputValue * (1/5);
-    const factor2 = inputValue * (1/10);
+    const factor = inputValue * (1 / leverage);
     let liq_price = null;
-    let liq_price2 = null;
     if(positionType === 'long')
       {
         liq_price = inputValue - factor+15;
-        liq_price2 = inputValue - factor2+15;
       }
     else
       {
         liq_price = inputValue + factor-15;
-        liq_price2 = inputValue + factor2-15;
       }
 
     document.querySelector('.info-line .value[data-type="max"]').textContent = `${closeToMax.toFixed(2)} %`;
@@ -263,9 +286,10 @@ async function getETHPrice() {
     document.querySelector('.info-line .value[data-type="prev1h"]').textContent = `${prevPrice1h.toFixed(2)} $`;
     // ✅ 1h Change
     document.querySelector('.info-line .value[data-type="average"]').textContent = `${priceChange1hPct.toFixed(2)} %`;
-    // ✅ Liquidation Price
-    document.querySelector('.info-line .value[data-type="liqPrice_5"]').textContent = `${liq_price.toFixed(2)} $`;
-    document.querySelector('.info-line .value[data-type="liqPrice_10"]').textContent = `${liq_price2.toFixed(2)} $`;
+    // ✅ Leverage
+    document.querySelector('.value[data-type="levr"]').textContent = `x${parseInt(leverage)}`;
+     // ✅ Liquidation Price
+    document.querySelector('.info-line .value[data-type="liqPrice"]').textContent = `${liq_price.toFixed(2)} $`;
   } catch (error) {
     console.error('Error fetching ETH price:', error);
   }
