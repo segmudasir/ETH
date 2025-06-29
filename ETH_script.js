@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       // If you use a global variable for stopPrice, update it here too
     }
     if (data.Leverage !== undefined) {
-      document.querySelector('.value[data-type="leverage"]').textContent = `x${data.Leverage}`;
+     document.querySelector('.value[data-type="levr"]').textContent = `x${data.Leverage}`;
       leverage = parseFloat(data.Leverage); // ✅ Store in global variable
     }
   } catch (error) {
