@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,3 +72,78 @@
   <script src="ETH_script.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ETH Price Tracker</title>
+  <link rel="stylesheet" href="ETH_styles.css" />
+</head>
+<body>
+  <div id="app-container">
+    <!-- Left: Chart and Controls -->
+    <div id="chart-panel">
+      <!-- Title -->
+      <h1 class="title">ETH Tracker </h1>
+
+      <!-- Entry, Size, Leverage -->
+      <div class="controls">
+        <input type="number" id="entryPrice" placeholder="Entry Price" />
+       <input type="number" id="size" placeholder="Size" value="0.01" />
+         <input type="number" id="stopPrice" placeholder="Stop Price" />
+      </div>
+      <!-- Position Type (Long/Short) -->
+<div class="controls">
+  <label><input type="radio" name="position" value="long" checked> Long</label>
+  &nbsp;&nbsp;
+  <label><input type="radio" name="position" value="short"> Short</label>
+</div>
+
+      <!-- Start Tracking Button -->
+      <div class="controls">
+        <button id="trackBtn" onclick="startTracking()">Start Tracking</button>
+      </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div id="latest-price" class="current-price">-- $</div>
+    <div id="profitDisplay" class="price profit-box">Profit: 0.00 $</div>
+    <div id="stop-price" class="stop-price">False</div>
+    
+  </div>
+      <!-- Chart -->
+      <div id="chart-container">
+        <canvas id="ethChart"></canvas>
+      </div>
+  </div>
+    
+    <!-- Info Panel -->
+<div id="info-panel">
+  <h2 class="panel1-heading">Previous 24 Hours</h2>
+
+  <!-- Info Box -->
+  <div class="detail-box">
+    <div class="info-line"><span class="label">24H Max:</span> <span class="value" id="high24h">2400</span></div>
+    <div class="info-line"><span class="label">24H Min:</span> <span class="value" id="low24h">2000</span></div>
+    <div class="info-line"><span class="label">Close to Max:</span> <span class="value" data-type="max">40%</span></div>
+    <div class="info-line"><span class="label">Close to Min:</span> <span class="value" data-type="min">60%</span></div>
+    <div class="info-line"><span class="label">24H Average:</span> <span class="value" data-type="24average">00</span></div>
+    <div class="info-line"><span class="label">1H Price:</span> <span class="value" data-type="prev1h">--</span></div>
+    <div class="info-line"><span class="label">1H Change:</span> <span class="value" data-type="average">00</span></div>
+  </div>
+
+  <!-- Standalone Liquidation Box (but same layout) -->
+  <div class="detail-box">
+    <div class="info-line"><span class="label">Leverage:</span> <span class="value" data-type="leverage">00</span></div>
+    <div class="info-line"><span class="label">Liquidation Price:</span> <span class="value" data-type="liqPrice">00</span></div>
+  </div>
+</div>
+</div>
+
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="ETH_script.js"></script>
+</body>
+</html>
+>>>>>>> efc9c07 (Update: Entry price fetch from API, leverage UI added)

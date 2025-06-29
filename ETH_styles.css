@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .title {
   font-size: 2rem;
   font-weight: bold;
@@ -186,3 +187,193 @@ body {
   color: rgb(238, 122, 29);
   font-weight: 579;
 }
+=======
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: -1px;
+  color: #333;
+}
+
+.controls {
+  margin: 11px 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 1
+    px auto;
+  background-color: #ffffff;
+}
+
+#app-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end; /* aligns info panel to bottom of chart */
+  gap: 23px;
+  padding: 20px;
+}
+
+#chart-panel {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#info-panel {
+  flex: 1;
+  align-self: flex-end; /* aligns to bottom */
+  border: 2px solid #ccc;
+  width: 80%; 
+  padding: 2px;
+  border-radius: 19px;
+  background-color: #94d5ca;
+  text-align: left;
+  margin-right: 50px;
+  margin-bottom: 49px; /* move 5 lines above */
+}
+
+.panel1-heading {
+  color: #ba2626;
+  font-size: 1rem; /* Optional: make it smaller */
+  margin-top: 10px;
+  margin-left: 35px;
+}
+
+
+.detail-box {
+  background-color: #eee;
+  padding: 10px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 27px;
+  margin-right: 27px;
+  border-radius: 10px;
+  font-weight: bold;
+  
+}
+/* Style specific for current price */
+.current-price {
+  font-size: 2.7rem;
+  font-weight: bold;
+  padding: 3px 4px;
+  border: 3px solid orange;
+  border-radius: 16px;
+  color: black;
+  display: inline-block;
+  margin: 10px;
+  margin-right: 40px;
+  background-color: #e7d75b;
+}
+.stop-price {
+  font-size: 2.1rem;
+  font-weight: bold;
+  padding: 3px 4px;
+  border: 3px solid #0ee4f7;
+  border-radius: 12px;
+  color: black;
+  display: inline-block;
+  margin: 10px;
+  margin-right: 40px;
+  background-color: #fa5c47;
+}
+
+/* Profit box specific styles */
+.profit-box {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 3px 4px;
+  border: 2px solid #e22666;
+  border-radius: 10px;
+  color: black;
+  display: inline-block;
+  margin: 10px;
+  margin-right: 38px;
+  background-color: #efe7ae; 
+}
+
+/* ROI box specific styles */
+.roi-box {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 3px 4px;
+  border: 2px solid orange;
+  border-radius: 10px;  /* Slightly different border radius for ROI */
+  color: black;
+  display: inline-block;
+  margin: 10px;
+  margin-right: 44px;
+  background-color: #efe7ae; 
+}
+
+
+.controls {
+  margin-bottom: 5px;
+}
+
+#chart-container {
+  width: 99%;
+  max-width: 1000px;
+  margin: 20px auto 0 auto;
+  border: 3px solid green;
+  border-radius: 21px;
+  padding: 15px;
+  
+}
+
+
+
+#positionType,
+#entryPrice,
+#size,
+#stopPrice {
+  font-size: 1.05rem;
+  padding: 5px 8px;
+  margin: 5px;
+  border: 2px solid #77bbf1;
+  border-radius: 7px;
+}
+
+#entryPrice
+{
+  width: 100px;
+}
+
+#size
+{
+  width: 100px;
+}
+
+#stopPrice {
+  width: 100px;
+}
+
+
+
+#trackBtn {
+  font-size: 1rem;
+  padding: 10px 15px;
+  background-color: darkorange;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 12px;
+}
+.info-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.label {
+  font-weight: bold;
+  color: #333;
+}
+
+.value {
+  color: rgb(238, 122, 29);
+  font-weight: 579;
+}
+>>>>>>> efc9c07 (Update: Entry price fetch from API, leverage UI added)
