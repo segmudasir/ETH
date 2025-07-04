@@ -112,7 +112,7 @@ const ethChart = new Chart(ctx, {
 
 window.addEventListener('DOMContentLoaded', async () => {
   try {
-    const response = await fetch('https://staff-api-plz8.onrender.com/data');
+    const response = await fetch('https://staff-school-api.onrender.com/data');
     const data = await response.json();
 
     if (data.EntryPrice !== undefined) {
