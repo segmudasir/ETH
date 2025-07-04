@@ -270,11 +270,11 @@ async function getETHPrice() {
     let liq_price = null;
     if(positionType === 'long')
       {
-        liq_price = inputValue - factor+15;
+        liq_price = inputValue - factor+12.75;
       }
     else
       {
-        liq_price = inputValue + factor-15;
+        liq_price = inputValue + factor-12.75;
       }
 
     document.querySelector('.info-line .value[data-type="max"]').textContent = `${closeToMax.toFixed(2)} %`;
