@@ -115,6 +115,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('https://data-staff-api.onrender.com/crypto');
     const data = await response.json();
 
+
+    // Turn on below code if you want default values from render API again. now settting off. 
+
+    /*
+
     if (data.EntryPrice !== undefined) {
       document.getElementById('entryPrice').value = data.EntryPrice;
       entryValue = data.EntryPrice;  // update global variable
@@ -131,6 +136,8 @@ window.addEventListener('DOMContentLoaded', async () => {
      document.querySelector('.value[data-type="levr"]').textContent = `x${data.Leverage}`;
       leverage = parseFloat(data.Leverage); // ✅ Store in global variable
     }
+
+    */
   } catch (error) {
     console.error('Failed to fetch initial data:', error);
   }
