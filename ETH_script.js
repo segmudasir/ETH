@@ -233,6 +233,22 @@ async function getETHPrice() {
             document.getElementById('stop-price').style.backgroundColor = '#61ee6f';
             document.getElementById('stop-price').style.borderColor= '#f7941e';
             document.getElementById('stop-price').textContent = 'Target Hit';
+
+            // ✅ Play beep sound
+            // Create Audio object for your tone
+            const alertTone = new Audio('Tone 1.mp3');
+
+              // Play the tone
+              alertTone.play();
+              
+            // ✅ When the tone finishes, speak the voice alert
+            alertTone.onended = () => {
+                const msg = new SpeechSynthesisUtterance("Target price is reached.");
+                window.speechSynthesis.speak(msg);
+            };
+
+            alertTone.play();
+            
           }
        }
      
@@ -245,6 +261,21 @@ async function getETHPrice() {
             document.getElementById('stop-price').style.backgroundColor = '#61ee6f';
             document.getElementById('stop-price').style.borderColor= '#f7941e';
             document.getElementById('stop-price').textContent = 'Target Hit';   
+
+            // ✅ Play beep sound
+            // Create Audio object for your tone
+            const alertTone = new Audio('Tone 1.mp3');
+
+              // Play the tone
+              alertTone.play();
+              
+            // ✅ When the tone finishes, speak the voice alert
+            alertTone.onended = () => {
+                const msg = new SpeechSynthesisUtterance("Target price is reached.");
+                window.speechSynthesis.speak(msg);
+            };
+
+            alertTone.play();
 
           }
       }
